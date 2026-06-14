@@ -52,7 +52,9 @@
   .hotel-tip { font-size: 9px !important; font-weight: 600 !important; letter-spacing: 0.04em !important; padding: 1px 6px !important; background: var(--ink) !important; color: var(--paper) !important; border: none !important; border-radius: 2px !important; box-shadow: 0 1px 3px rgba(0,0,0,0.3) !important; }
   .hotel-tip::before { display: none !important; }
 
-  .sub-label { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin: 20px 0 6px; font-weight: 500; }
+  .sub-label { display: flex; flex-wrap: wrap; align-items: baseline; gap: 3px 12px; margin: 36px 0 10px; padding: 11px 16px; background: var(--cream); border-left: 4px solid var(--gold); border-radius: 2px; }
+  .sub-label-main { font-size: 14px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink); }
+  .sub-label-note { font-size: 11px; font-weight: 400; color: var(--muted); letter-spacing: 0.02em; }
 
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 1px; }
 
@@ -138,7 +140,7 @@
   </div>
   <div class="section-map" id="map-valgardena"></div>
 
-  <div class="sub-label">Best of Val Gardena — 500+ reviews · ~15 min from Selva</div>
+  <div class="sub-label"><span class="sub-label-main">Best of Val Gardena</span><span class="sub-label-note">500+ reviews · ~15 min from Selva</span></div>
   <div class="grid">
 
     <a class="card standout" href="https://www.google.com/maps/search/?api=1&query=Caff%C3%A8%20Val%20d%27Anna&query_place_id=ChIJBS1tXakTeEcR6uHfht-f9Gk" target="_blank" rel="noopener">
@@ -233,7 +235,7 @@
 
   </div>
 
-  <div class="sub-label">Near your hotel — Selva di Val Gardena · smaller town, several under 500 reviews</div>
+  <div class="sub-label"><span class="sub-label-main">Near your hotel — Selva</span><span class="sub-label-note">smaller town · several under 500 reviews</span></div>
   <div class="grid">
 
     <a class="card" href="https://www.google.com/maps/search/?api=1&query=Granbaita%20Gourmet&query_place_id=ChIJ8RImkPUVeEcR_T_B1XB6JEQ" target="_blank" rel="noopener">
@@ -293,7 +295,7 @@
   </div>
   <div class="section-map" id="map-cortina"></div>
 
-  <div class="sub-label">Best of Cortina — 500+ reviews · ~15 min from San Vito</div>
+  <div class="sub-label"><span class="sub-label-main">Best of Cortina</span><span class="sub-label-note">500+ reviews · ~15 min from San Vito</span></div>
   <div class="grid">
 
     <a class="card standout" href="https://www.google.com/maps/search/?api=1&query=Baita%20Resch&query_place_id=ChIJQ_g7-jY0eEcRTUjlDq-66fE" target="_blank" rel="noopener">
@@ -361,7 +363,7 @@
 
   </div>
 
-  <div class="sub-label">Special-occasion — under 500 reviews, verify hours</div>
+  <div class="sub-label"><span class="sub-label-main">Special-occasion</span><span class="sub-label-note">under 500 reviews · verify hours</span></div>
   <div class="grid">
 
     <a class="card" href="https://www.google.com/maps/search/?api=1&query=SanBrite&query_place_id=ChIJnfBx_UA0eEcRUgc0IMvOrk0" target="_blank" rel="noopener">
@@ -393,7 +395,7 @@
 
   </div>
 
-  <div class="sub-label">Near your hotel — San Vito di Cadore · smaller town, several under 500 reviews</div>
+  <div class="sub-label"><span class="sub-label-main">Near your hotel — San Vito</span><span class="sub-label-note">smaller town · several under 500 reviews</span></div>
   <div class="grid">
 
     <a class="card standout" href="https://www.google.com/maps/search/?api=1&query=Rifugio%20Larin&query_place_id=ChIJqWJdXT-1eUcRBvET3s2vSXk" target="_blank" rel="noopener">
