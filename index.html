@@ -65,6 +65,17 @@
   .toppick-item .tp-why { display: block; font-size: 12px; color: rgba(245,240,232,0.6); font-weight: 300; }
   .toppick-item:hover .tp-name { color: var(--gold); }
 
+  .essentials { background: var(--paper); }
+  .ess-row { display: flex; align-items: baseline; gap: 12px; padding: 13px 22px; border-bottom: 1px solid var(--border); text-decoration: none; color: inherit; transition: background 0.15s; }
+  .ess-row:last-child { border-bottom: none; }
+  .ess-row:hover { background: var(--cream); }
+  .ess-tag { flex-shrink: 0; width: 72px; font-size: 9px; font-weight: 600; letter-spacing: 0.11em; text-transform: uppercase; color: var(--gold); padding-top: 4px; }
+  .ess-content { flex: 1; }
+  .ess-name { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 700; line-height: 1.25; }
+  .ess-name::after { content: ' ↗'; font-size: 10px; color: var(--muted); opacity: 0; transition: opacity 0.15s; }
+  .ess-row:hover .ess-name::after { opacity: 1; }
+  .ess-why { font-size: 12px; color: var(--muted); font-weight: 300; line-height: 1.45; margin-top: 3px; }
+
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 1px; }
 
   .card { background: var(--paper); position: relative; transition: background 0.15s; display: flex; flex-direction: column; }
@@ -400,6 +411,14 @@
     </div>
 
   </div>
+
+  <div class="sub-label"><span class="sub-label-main">Beyond Dinner</span><span class="sub-label-note">gelato · coffee · aperitivo · trail picnic</span></div>
+  <div class="essentials">
+    <a class="ess-row" href="https://www.google.com/maps/search/?api=1&query=Squisitezze%20Gioia%20gelato%20Ortisei&query_place_id=ChIJDylbcf4SeEcR9rjBEyV9XwQ" target="_blank" rel="noopener"><div class="ess-tag">Gelato</div><div class="ess-content"><div class="ess-name">Squisitezze Gioia</div><div class="ess-why">Family-made, some of the best in the valley — salted caramel, pistachio, stracciatella. In Ortisei centre.</div></div></a>
+    <a class="ess-row" href="https://www.google.com/maps/search/?api=1&query=Caff%C3%A8%20Corso%20Senoner%20Ortisei&query_place_id=ChIJK_vbjf4SeEcRH-pCJZi1tTk" target="_blank" rel="noopener"><div class="ess-tag">Coffee</div><div class="ess-content"><div class="ess-name">Caffè Corso</div><div class="ess-why">Top cappuccino + croissants, right by the Seceda cable car — ideal before heading up. Closed Tuesdays.</div></div></a>
+    <a class="ess-row" href="https://www.google.com/maps/search/?api=1&query=C%C3%ABrcia%20Enoteca%20Ortisei&query_place_id=ChIJ03Ocyv4SeEcRpR4ZpbiJZZ0" target="_blank" rel="noopener"><div class="ess-tag">Aperitivo</div><div class="ess-content"><div class="ess-name">Cërcia Enoteca</div><div class="ess-why">Buzzy local wine bar in Ortisei — good pours, free snacks, the spot for a pre-dinner drink.</div></div></a>
+    <a class="ess-row" href="https://www.google.com/maps/search/?api=1&query=Senoner%20Sarteur%20DESPAR%20Selva&query_place_id=ChIJlete5e4UeEcR6dAaKSbV298" target="_blank" rel="noopener"><div class="ess-tag">Trail picnic</div><div class="ess-content"><div class="ess-name">Senoner Sarteur (Despar)</div><div class="ess-why">Deli counter with fresh-cut speck & mountain cheese — biggest selection in Selva, walkable from the hotel. Stock up for hikes.</div></div></a>
+  </div>
 </section>
 
 <!-- ═══ LEG 2 — CORTINA ═══ -->
@@ -658,6 +677,14 @@
       </div>
     </div>
 
+  </div>
+
+  <div class="sub-label"><span class="sub-label-main">Beyond Dinner</span><span class="sub-label-note">gelato · coffee · aperitivo · trail picnic</span></div>
+  <div class="essentials">
+    <a class="ess-row" href="https://www.google.com/maps/search/?api=1&query=Da%20Po%27%20gelato%20Cortina&query_place_id=ChIJTcPFd4g1eEcRP5A5bB-218s" target="_blank" rel="noopener"><div class="ess-tag">Gelato</div><div class="ess-content"><div class="ess-name">Da Po'</div><div class="ess-why">Cortina's best gelato — creamy, real-fruit flavours, vegan options too. Central. Closed Wednesdays.</div></div></a>
+    <a class="ess-row" href="https://www.google.com/maps/search/?api=1&query=Pasticceria%20Alver%C3%A0%20Cortina&query_place_id=ChIJj90rjzo0eEcRwxPTvyk__IU" target="_blank" rel="noopener"><div class="ess-tag">Coffee</div><div class="ess-content"><div class="ess-name">Pasticceria Alverà</div><div class="ess-why">Dead-central for morning espresso, croissants and tiny perfect pastries. Closed Mondays.</div></div></a>
+    <a class="ess-row" href="https://www.google.com/maps/search/?api=1&query=Enoteca%20Baita%20Fraina%20Cortina&query_place_id=ChIJZbsXnzA0eEcRc1tgGxBt70I" target="_blank" rel="noopener"><div class="ess-tag">Aperitivo</div><div class="ess-content"><div class="ess-name">Enoteca Baita Fraina</div><div class="ess-why">Outdoor wine bar with sunset views of Tofana — local wine + cheese plate. Closed Tuesdays.</div></div></a>
+    <a class="ess-row" href="https://www.google.com/maps/search/?api=1&query=Alimentari%20Rezzadore%20Cortina&query_place_id=ChIJI1FX5zw0eEcRPCFgNC1mTCY" target="_blank" rel="noopener"><div class="ess-tag">Trail picnic</div><div class="ess-content"><div class="ess-name">Alimentari Rezzadore</div><div class="ess-why">Hikers' favourite — fresh €3 prosciutto panini made to order, legendary in-store speck. Grab before the trail.</div></div></a>
   </div>
 </section>
 
