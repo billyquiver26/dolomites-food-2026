@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dolomites Food Guide — Cortina &amp; Ortisei</title>
+<title>Dolomites Food Guide — Val Gardena &amp; Cortina</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 <style>
@@ -11,7 +11,7 @@
     --ink: #1a1614;
     --paper: #f5f0e8;
     --cream: #ede7d6;
-    --red: #2e5e4e;         /* alpine evergreen accent */
+    --red: #2e5e4e;
     --gold: #b8860b;
     --muted: #7a7062;
     --border: #d4c9b0;
@@ -33,7 +33,7 @@
   .meta-val { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--paper); }
 
   .criteria-bar { background: var(--red); padding: 14px 40px; }
-  .criteria-inner { max-width: 900px; margin: 0 auto; display: flex; gap: 32px; align-items: center; flex-wrap: wrap; }
+  .criteria-inner { max-width: 900px; margin: 0 auto; display: flex; gap: 28px; align-items: center; flex-wrap: wrap; }
   .crit { display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 500; color: rgba(255,255,255,0.9); letter-spacing: 0.04em; }
   .crit-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.6); flex-shrink: 0; }
 
@@ -45,10 +45,12 @@
   .section-title { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; letter-spacing: -0.5px; }
   .section-note { font-size: 12px; color: var(--muted); font-style: italic; margin-left: auto; white-space: nowrap; }
 
-  .section-map { height: 170px; width: 100%; margin: 0 0 1px 0; border: 1px solid var(--border); border-top: none; overflow: hidden; position: relative; }
+  .section-map { height: 180px; width: 100%; margin: 0 0 1px 0; border: 1px solid var(--border); border-top: none; overflow: hidden; position: relative; }
   .section-map .leaflet-control-attribution { font-size: 8px !important; padding: 1px 4px !important; background: rgba(255,255,255,0.7) !important; }
   .section-map .leaflet-control-zoom { display: none !important; }
   .section-map .leaflet-grab { cursor: default; }
+  .hotel-tip { font-size: 9px !important; font-weight: 600 !important; letter-spacing: 0.04em !important; padding: 1px 6px !important; background: var(--ink) !important; color: var(--paper) !important; border: none !important; border-radius: 2px !important; box-shadow: 0 1px 3px rgba(0,0,0,0.3) !important; }
+  .hotel-tip::before { display: none !important; }
 
   .sub-label { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin: 20px 0 6px; font-weight: 500; }
 
@@ -95,7 +97,7 @@
     .header-meta { gap: 20px; }
     .grid { grid-template-columns: 1fr; }
     .section-note { display: none; }
-    .section-map { height: 140px; }
+    .section-map { height: 150px; }
   }
 </style>
 </head>
@@ -103,14 +105,14 @@
 
 <header class="header">
   <div class="header-inner">
-    <div class="header-tag">Dolomites · Cortina + Val Gardena</div>
+    <div class="header-tag">Dolomites · 27 Jun – 4 Jul 2026</div>
     <h1>Where to<br><em>Eat</em> in the Dolomites</h1>
-    <div class="header-sub">Cortina d'Ampezzo &amp; Ortisei — top-rated tables, ranked by Google rating · Tap any card to open in Google Maps</div>
+    <div class="header-sub">Val Gardena, then Cortina · ranked by Google rating · tap any card to open in Google Maps</div>
     <div class="header-meta">
       <div class="meta-item"><span class="meta-label">Stops</span><span class="meta-val">20</span></div>
       <div class="meta-item"><span class="meta-label">Towns</span><span class="meta-val">2</span></div>
+      <div class="meta-item"><span class="meta-label">Nights</span><span class="meta-val">7</span></div>
       <div class="meta-item"><span class="meta-label">Min. Rating</span><span class="meta-val">4.0★</span></div>
-      <div class="meta-item"><span class="meta-label">Sourced</span><span class="meta-val">Google</span></div>
     </div>
   </div>
 </header>
@@ -120,22 +122,128 @@
     <div class="crit"><div class="crit-dot"></div>$$ = casual · $$$ = splurge</div>
     <div class="crit"><div class="crit-dot"></div>Dark card = standout pick</div>
     <div class="crit"><div class="crit-dot"></div>⚑ = under 500 reviews — verify first</div>
+    <div class="crit"><div class="crit-dot"></div>Red map pin = your hotel</div>
     <div class="crit"><div class="crit-dot"></div>Sorted by stars within each group</div>
   </div>
 </div>
 
 <main class="main">
 
-<!-- ═══ CORTINA ═══ -->
+<!-- ═══ LEG 1 — VAL GARDENA ═══ -->
 <section class="section">
   <div class="section-header">
-    <span class="section-day">Town 1</span>
+    <span class="section-day">Jun 27 – Jul 1</span>
+    <h2 class="section-title">Ortisei &amp; Val Gardena</h2>
+    <span class="section-note">Based at Alpstay Acadia, Selva</span>
+  </div>
+  <div class="section-map" id="map-valgardena"></div>
+
+  <div class="sub-label">Best of Val Gardena — 500+ reviews · ~15 min from Selva</div>
+  <div class="grid">
+
+    <a class="card standout" href="https://www.google.com/maps/place/?q=place_id:ChIJBS1tXakTeEcR6uHfht-f9Gk" target="_blank" rel="noopener">
+      <div class="card-top">
+        <div class="card-name">Caffè Val d'Anna</div>
+        <div class="card-badges"><span class="badge badge-price-2">$$</span></div>
+      </div>
+      <div class="card-meta"><span class="card-stars">★ 4.7</span><span class="card-reviews">2,387 reviews</span></div>
+      <div class="card-note">Hearty Tyrolean cooking, huge portions, deer goulash and best-polenta claims. Ski/hike-in, family-friendly. Check summer hours.</div>
+    </a>
+
+    <a class="card" href="https://www.google.com/maps/place/?q=place_id:ChIJB80mXakTeEcR30qWcudHoLY" target="_blank" rel="noopener">
+      <div class="card-top">
+        <div class="card-name">Val d'Anna Hütte</div>
+        <div class="card-badges"><span class="badge badge-price-2">$$</span></div>
+      </div>
+      <div class="card-meta"><span class="card-stars">★ 4.7</span><span class="card-reviews">867 reviews</span></div>
+      <div class="card-note">Mountain hut at the end of the La Longia run (same Val d'Anna spot). Standout apple strudel and Kaiserschmarren. Check summer hours.</div>
+    </a>
+
+    <a class="card standout" href="https://www.google.com/maps/place/?q=place_id:ChIJ-6S5Yv4SeEcRDMRqWPAy6pI" target="_blank" rel="noopener">
+      <div class="card-top">
+        <div class="card-name">Vedl Mulin</div>
+        <div class="card-badges"><span class="badge badge-price-2">$$</span></div>
+      </div>
+      <div class="card-meta"><span class="card-stars">★ 4.6</span><span class="card-reviews">4,629 reviews</span></div>
+      <div class="card-note">Most-reviewed in Ortisei — fast friendly service, excellent margherita and mushroom risotto. Central, open year-round.</div>
+    </a>
+
+    <a class="card" href="https://www.google.com/maps/place/?q=place_id:ChIJ80QySQITeEcRZzwTfYGxln0" target="_blank" rel="noopener">
+      <div class="card-top">
+        <div class="card-name">Restaurant Tubladel</div>
+        <div class="card-badges"><span class="badge badge-price-3">$$$</span></div>
+      </div>
+      <div class="card-meta"><span class="card-stars">★ 4.6</span><span class="card-reviews">1,907 reviews</span></div>
+      <div class="card-note">Often the best meal in town: marinated lake trout, truffle gnocchi, lamb cordon bleu. Reserve.</div>
+    </a>
+
+    <a class="card" href="https://www.google.com/maps/place/?q=place_id:ChIJLawI-P8SeEcRUx0ATrW_lbI" target="_blank" rel="noopener">
+      <div class="card-top">
+        <div class="card-name">Baita Pauli Hütte</div>
+        <div class="card-badges"><span class="badge badge-price-2">$$</span></div>
+      </div>
+      <div class="card-meta"><span class="card-stars">★ 4.6</span><span class="card-reviews">1,118 reviews</span></div>
+      <div class="card-note">Log-fire mountain hut — the freshly grilled meats are the move. Great for a sunny terrace lunch. Check summer hours.</div>
+    </a>
+
+    <a class="card" href="https://www.google.com/maps/place/?q=place_id:ChIJg5hmVPgSeEcRIg0kauRQhso" target="_blank" rel="noopener">
+      <div class="card-top">
+        <div class="card-name">Almgasthof Mont Seuc</div>
+        <div class="card-badges"><span class="badge badge-price-2">$$</span></div>
+      </div>
+      <div class="card-meta"><span class="card-stars">★ 4.5</span><span class="card-reviews">1,699 reviews</span></div>
+      <div class="card-note">Atop the Seiser Alm cable car, sweeping views, excellent apple strudel. Lift-access — confirm the cable car + restaurant are open.</div>
+    </a>
+
+    <a class="card" href="https://www.google.com/maps/place/?q=place_id:ChIJwXBz_f0SeEcRMUUYhID9RQI" target="_blank" rel="noopener">
+      <div class="card-top">
+        <div class="card-name">Restaurant &amp; Bar Vives</div>
+        <div class="card-badges"><span class="badge badge-price-3">$$$</span></div>
+      </div>
+      <div class="card-meta"><span class="card-stars">★ 4.5</span><span class="card-reviews">528 reviews</span></div>
+      <div class="card-note">Creative seasonal-local cooking, red-prawn cacio e pepe. Town-center, refined.</div>
+    </a>
+
+    <a class="card" href="https://www.google.com/maps/place/?q=place_id:ChIJw2j6tf4SeEcRHlTH_Nk2Nr4" target="_blank" rel="noopener">
+      <div class="card-top">
+        <div class="card-name">Mauriz Keller</div>
+        <div class="card-badges"><span class="badge badge-price-3">$$$</span></div>
+      </div>
+      <div class="card-meta"><span class="card-stars">★ 4.4</span><span class="card-reviews">3,489 reviews</span></div>
+      <div class="card-note">Years-consistent quality, superb bread basket, perfect al dente pasta. Reserve evenings.</div>
+    </a>
+
+    <a class="card" href="https://www.google.com/maps/place/?q=place_id:ChIJZ_tV0PgSeEcRznlQASYBK4o" target="_blank" rel="noopener">
+      <div class="card-top">
+        <div class="card-name">Snetonstube</div>
+        <div class="card-badges"><span class="badge badge-price-2">$$</span></div>
+      </div>
+      <div class="card-meta"><span class="card-stars">★ 4.4</span><span class="card-reviews">1,247 reviews</span></div>
+      <div class="card-note">Ladin specialties — canederli, spätzle, roebuck ragù — in a cozy room at a fair price.</div>
+    </a>
+
+    <a class="card" href="https://www.google.com/maps/place/?q=place_id:ChIJES9gCv4SeEcRjydx56DcQf8" target="_blank" rel="noopener">
+      <div class="card-top">
+        <div class="card-name">Ustaria Da Checco</div>
+        <div class="card-badges"><span class="badge badge-price-2">$$</span></div>
+      </div>
+      <div class="card-meta"><span class="card-stars">★ 4.4</span><span class="card-reviews">690 reviews</span></div>
+      <div class="card-note">Modern steakhouse/Med room, venison and chestnut-flour gnocchi, dedicated parking.</div>
+    </a>
+
+  </div>
+</section>
+
+<!-- ═══ LEG 2 — CORTINA ═══ -->
+<section class="section">
+  <div class="section-header">
+    <span class="section-day">Jul 1 – Jul 4</span>
     <h2 class="section-title">Cortina d'Ampezzo</h2>
-    <span class="section-note">Veneto · Ampezzo valley</span>
+    <span class="section-note">Based at Hotel Fiori, San Vito</span>
   </div>
   <div class="section-map" id="map-cortina"></div>
 
-  <div class="sub-label">Best of Cortina — 500+ reviews</div>
+  <div class="sub-label">Best of Cortina — 500+ reviews · ~15 min from San Vito</div>
   <div class="grid">
 
     <a class="card standout" href="https://www.google.com/maps/place/?q=place_id:ChIJQ_g7-jY0eEcRTUjlDq-66fE" target="_blank" rel="noopener">
@@ -144,7 +252,7 @@
         <div class="card-badges"><span class="badge badge-price-2">$$</span></div>
       </div>
       <div class="card-meta"><span class="card-stars">★ 4.5</span><span class="card-reviews">1,182 reviews</span></div>
-      <div class="card-note">Family-run baita 30 min above town with huge valley views. Standout carbonara and tiramisu. Lunch-only (9–5, Sat till 9).</div>
+      <div class="card-note">Family-run baita above town with huge valley views. Standout carbonara and tiramisu. Lunch-only (9–5, Sat till 9). Check summer hours.</div>
     </a>
 
     <a class="card standout" href="https://www.google.com/maps/place/?q=place_id:ChIJU-S0yog2eEcRkzsAhe3f1mc" target="_blank" rel="noopener">
@@ -153,7 +261,7 @@
         <div class="card-badges"><span class="badge badge-price-3">$$$</span></div>
       </div>
       <div class="card-meta"><span class="card-stars">★ 4.5</span><span class="card-reviews">891 reviews</span></div>
-      <div class="card-note">Slope-side Alpine fine dining; tasting menus repeatedly called the best meal in Cortina. Thu–Sat — reserve well ahead.</div>
+      <div class="card-note">Slope-side Alpine fine dining; tasting menus repeatedly called the best meal in Cortina. Reserve well ahead. Check summer hours.</div>
     </a>
 
     <a class="card" href="https://www.google.com/maps/place/?q=place_id:ChIJLSvNETo0eEcRJiQ4nl848_8" target="_blank" rel="noopener">
@@ -236,111 +344,6 @@
   </div>
 </section>
 
-<!-- ═══ ORTISEI ═══ -->
-<section class="section">
-  <div class="section-header">
-    <span class="section-day">Town 2</span>
-    <h2 class="section-title">Ortisei (Val Gardena)</h2>
-    <span class="section-note">South Tyrol · ~55 km from Cortina</span>
-  </div>
-  <div class="section-map" id="map-ortisei"></div>
-
-  <div class="sub-label">Best of Ortisei — 500+ reviews</div>
-  <div class="grid">
-
-    <a class="card standout" href="https://www.google.com/maps/place/?q=place_id:ChIJBS1tXakTeEcR6uHfht-f9Gk" target="_blank" rel="noopener">
-      <div class="card-top">
-        <div class="card-name">Caffè Val d'Anna</div>
-        <div class="card-badges"><span class="badge badge-price-2">$$</span></div>
-      </div>
-      <div class="card-meta"><span class="card-stars">★ 4.7</span><span class="card-reviews">2,387 reviews</span></div>
-      <div class="card-note">Hearty Tyrolean cooking, huge portions, deer goulash and best-polenta claims. Ski/hike-in, family-friendly.</div>
-    </a>
-
-    <a class="card" href="https://www.google.com/maps/place/?q=place_id:ChIJB80mXakTeEcR30qWcudHoLY" target="_blank" rel="noopener">
-      <div class="card-top">
-        <div class="card-name">Val d'Anna Hütte</div>
-        <div class="card-badges"><span class="badge badge-price-2">$$</span></div>
-      </div>
-      <div class="card-meta"><span class="card-stars">★ 4.7</span><span class="card-reviews">867 reviews</span></div>
-      <div class="card-note">Mountain hut at the end of the La Longia run (same Val d'Anna spot). Standout apple strudel and Kaiserschmarren.</div>
-    </a>
-
-    <a class="card standout" href="https://www.google.com/maps/place/?q=place_id:ChIJ-6S5Yv4SeEcRDMRqWPAy6pI" target="_blank" rel="noopener">
-      <div class="card-top">
-        <div class="card-name">Vedl Mulin</div>
-        <div class="card-badges"><span class="badge badge-price-2">$$</span></div>
-      </div>
-      <div class="card-meta"><span class="card-stars">★ 4.6</span><span class="card-reviews">4,629 reviews</span></div>
-      <div class="card-note">Most-reviewed in Ortisei — fast friendly service, excellent margherita and mushroom risotto. Central.</div>
-    </a>
-
-    <a class="card" href="https://www.google.com/maps/place/?q=place_id:ChIJ80QySQITeEcRZzwTfYGxln0" target="_blank" rel="noopener">
-      <div class="card-top">
-        <div class="card-name">Restaurant Tubladel</div>
-        <div class="card-badges"><span class="badge badge-price-3">$$$</span></div>
-      </div>
-      <div class="card-meta"><span class="card-stars">★ 4.6</span><span class="card-reviews">1,907 reviews</span></div>
-      <div class="card-note">Often the best meal in town: marinated lake trout, truffle gnocchi, lamb cordon bleu. Reserve.</div>
-    </a>
-
-    <a class="card" href="https://www.google.com/maps/place/?q=place_id:ChIJLawI-P8SeEcRUx0ATrW_lbI" target="_blank" rel="noopener">
-      <div class="card-top">
-        <div class="card-name">Baita Pauli Hütte</div>
-        <div class="card-badges"><span class="badge badge-price-2">$$</span></div>
-      </div>
-      <div class="card-meta"><span class="card-stars">★ 4.6</span><span class="card-reviews">1,118 reviews</span></div>
-      <div class="card-note">Log-fire mountain hut — the freshly grilled meats are the move. Great for a sunny terrace lunch.</div>
-    </a>
-
-    <a class="card" href="https://www.google.com/maps/place/?q=place_id:ChIJg5hmVPgSeEcRIg0kauRQhso" target="_blank" rel="noopener">
-      <div class="card-top">
-        <div class="card-name">Almgasthof Mont Seuc</div>
-        <div class="card-badges"><span class="badge badge-price-2">$$</span></div>
-      </div>
-      <div class="card-meta"><span class="card-stars">★ 4.5</span><span class="card-reviews">1,699 reviews</span></div>
-      <div class="card-note">Atop the Seiser Alm cable car, sweeping views, excellent apple strudel. Family-friendly.</div>
-    </a>
-
-    <a class="card" href="https://www.google.com/maps/place/?q=place_id:ChIJwXBz_f0SeEcRMUUYhID9RQI" target="_blank" rel="noopener">
-      <div class="card-top">
-        <div class="card-name">Restaurant &amp; Bar Vives</div>
-        <div class="card-badges"><span class="badge badge-price-3">$$$</span></div>
-      </div>
-      <div class="card-meta"><span class="card-stars">★ 4.5</span><span class="card-reviews">528 reviews</span></div>
-      <div class="card-note">Creative seasonal-local cooking, red-prawn cacio e pepe. Town-center, refined.</div>
-    </a>
-
-    <a class="card" href="https://www.google.com/maps/place/?q=place_id:ChIJw2j6tf4SeEcRHlTH_Nk2Nr4" target="_blank" rel="noopener">
-      <div class="card-top">
-        <div class="card-name">Mauriz Keller</div>
-        <div class="card-badges"><span class="badge badge-price-3">$$$</span></div>
-      </div>
-      <div class="card-meta"><span class="card-stars">★ 4.4</span><span class="card-reviews">3,489 reviews</span></div>
-      <div class="card-note">Years-consistent quality, superb bread basket, perfect al dente pasta. Reserve evenings.</div>
-    </a>
-
-    <a class="card" href="https://www.google.com/maps/place/?q=place_id:ChIJZ_tV0PgSeEcRznlQASYBK4o" target="_blank" rel="noopener">
-      <div class="card-top">
-        <div class="card-name">Snetonstube</div>
-        <div class="card-badges"><span class="badge badge-price-2">$$</span></div>
-      </div>
-      <div class="card-meta"><span class="card-stars">★ 4.4</span><span class="card-reviews">1,247 reviews</span></div>
-      <div class="card-note">Ladin specialties — canederli, spätzle, roebuck ragù — in a cozy room at a fair price.</div>
-    </a>
-
-    <a class="card" href="https://www.google.com/maps/place/?q=place_id:ChIJES9gCv4SeEcRjydx56DcQf8" target="_blank" rel="noopener">
-      <div class="card-top">
-        <div class="card-name">Ustaria Da Checco</div>
-        <div class="card-badges"><span class="badge badge-price-2">$$</span></div>
-      </div>
-      <div class="card-meta"><span class="card-stars">★ 4.4</span><span class="card-reviews">690 reviews</span></div>
-      <div class="card-note">Modern steakhouse/Med room, venison and chestnut-flour gnocchi, dedicated parking.</div>
-    </a>
-
-  </div>
-</section>
-
 </main>
 
 <footer class="footer">
@@ -351,9 +354,10 @@
       <div class="legend-item"><span class="badge badge-price-3" style="background:rgba(173,20,87,0.3);color:#f48fb1;">$$$</span> Splurge</div>
       <div class="legend-item"><span class="badge badge-flag">⚑</span> Under 500 reviews — verify</div>
       <div class="legend-item"><span style="width:20px;height:14px;background:#1a1614;display:inline-block;border-radius:2px;"></span> Standout pick</div>
+      <div class="legend-item"><span style="width:14px;height:14px;background:#c0392b;display:inline-block;border-radius:50%;border:2px solid #fff;"></span> Your hotel</div>
     </div>
     <div class="footer-note">
-      All main-list spots meet 500+ Google Maps reviews and 4.0+ stars. Flagged (⚑) special-occasion picks fall below the review floor but are included for caliber — confirm hours and reservations directly. Clicking a card opens Google Maps. Sorted by star rating within each group, then review count as tiebreaker. Map tiles © OpenStreetMap contributors.
+      Travelling June 27 – July 4: most spots are open for summer, but several mountain huts (lift- or trail-access) open only around late June and close between seasons — confirm "check summer hours" spots before heading up, especially in the first few days. All main-list spots meet 500+ Google Maps reviews and 4.0+ stars; flagged (⚑) special-occasion picks fall below the review floor but are included for caliber. Clicking a card opens Google Maps. Sorted by star rating within each group, then review count as tiebreaker. Map tiles © OpenStreetMap contributors.
     </div>
   </div>
 </footer>
@@ -361,6 +365,19 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
+
+  var VALGARDENA = [
+    [46.5801316, 11.6870737],
+    [46.5801268, 11.6871032],
+    [46.5731145, 11.6741357],
+    [46.5706568, 11.6789184],
+    [46.5787522, 11.6838421],
+    [46.5580661, 11.6650487],
+    [46.5724272, 11.6762862],
+    [46.5742159, 11.6715355],
+    [46.5763151, 11.6713122],
+    [46.5738433, 11.6754999]
+  ];
 
   var CORTINA = [
     [46.5231399, 12.1002238],
@@ -375,18 +392,8 @@ document.addEventListener('DOMContentLoaded', function () {
     [46.5335400, 12.1407410]
   ];
 
-  var ORTISEI = [
-    [46.5801316, 11.6870737],
-    [46.5801268, 11.6871032],
-    [46.5731145, 11.6741357],
-    [46.5706568, 11.6789184],
-    [46.5787522, 11.6838421],
-    [46.5580661, 11.6650487],
-    [46.5724272, 11.6762862],
-    [46.5742159, 11.6715355],
-    [46.5763151, 11.6713122],
-    [46.5738433, 11.6754999]
-  ];
+  var HOTEL_ACADIA = [46.5573271, 11.7597507];
+  var HOTEL_FIORI  = [46.4606061, 12.2046869];
 
   function makeMap(id, center, zoom) {
     var el = document.getElementById(id);
@@ -421,8 +428,29 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  addPins(makeMap('map-cortina', [46.5385, 12.1320], 13), CORTINA);
-  addPins(makeMap('map-ortisei', [46.5735, 11.6760], 13), ORTISEI);
+  function addHotel(m, pt, label) {
+    if (!m) return;
+    L.circleMarker(pt, {
+      radius: 7,
+      color: '#ffffff',
+      weight: 2,
+      fillColor: '#c0392b',
+      fillOpacity: 1
+    }).addTo(m).bindTooltip(label, {
+      permanent: true,
+      direction: 'top',
+      className: 'hotel-tip',
+      offset: [0, -6]
+    });
+  }
+
+  var mVG = makeMap('map-valgardena', [46.5685, 11.7120], 12);
+  addPins(mVG, VALGARDENA);
+  addHotel(mVG, HOTEL_ACADIA, '🛏 Alpstay Acadia');
+
+  var mC = makeMap('map-cortina', [46.5030, 12.1520], 11);
+  addPins(mC, CORTINA);
+  addHotel(mC, HOTEL_FIORI, '🛏 Hotel Fiori');
 
 });
 </script>
