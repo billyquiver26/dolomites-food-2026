@@ -4,6 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dolomites Food Guide — Val Gardena &amp; Cortina</title>
+<meta name="theme-color" content="#1a1614">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Dolomites Eats">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-180.png">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 <style>
@@ -69,12 +75,19 @@
   .ess-row { display: flex; align-items: baseline; gap: 12px; padding: 13px 22px; border-bottom: 1px solid var(--border); text-decoration: none; color: inherit; transition: background 0.15s; }
   .ess-row:last-child { border-bottom: none; }
   .ess-row:hover { background: var(--cream); }
-  .ess-tag { flex-shrink: 0; width: 72px; font-size: 9px; font-weight: 600; letter-spacing: 0.11em; text-transform: uppercase; color: var(--gold); padding-top: 4px; }
+  .ess-tag { flex-shrink: 0; width: 82px; font-size: 9px; font-weight: 600; letter-spacing: 0.11em; text-transform: uppercase; color: var(--gold); padding-top: 4px; }
   .ess-content { flex: 1; }
   .ess-name { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 700; line-height: 1.25; }
   .ess-name::after { content: ' ↗'; font-size: 10px; color: var(--muted); opacity: 0; transition: opacity 0.15s; }
   .ess-row:hover .ess-name::after { opacity: 1; }
   .ess-why { font-size: 12px; color: var(--muted); font-weight: 300; line-height: 1.45; margin-top: 3px; }
+
+  .intro-box { background: var(--cream); border-left: 3px solid var(--gold); border-radius: 3px; padding: 18px 22px; margin-top: 28px; }
+  .intro-title { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 11px; }
+  .intro-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+  .intro-list li { font-size: 13px; color: var(--ink); line-height: 1.5; padding-left: 16px; position: relative; }
+  .intro-list li::before { content: '›'; position: absolute; left: 2px; color: var(--gold); font-weight: 700; }
+  .intro-list strong { font-weight: 500; }
 
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 1px; }
 
@@ -159,6 +172,17 @@
 </div>
 
 <main class="main">
+
+  <div class="intro-box">
+    <div class="intro-title">Before you go</div>
+    <ul class="intro-list">
+      <li><strong>Book dinner ahead.</strong> Late June–July is peak season — reserve the standouts a day or two out, especially the dark-card picks.</li>
+      <li><strong>Meal times.</strong> Lunch runs ~12–2, dinner from ~7:30. Several spots close one weekday — noted on the card.</li>
+      <li><strong>Mountain huts are seasonal &amp; weather-dependent.</strong> Check they're open before you set out, and carry some cash — signal is patchy up high.</li>
+      <li><strong>Book the big lifts.</strong> Seceda, Dantercepies, Lagazuoi and the Falzarego cable car save the legs and the queues.</li>
+      <li><strong>Everything is tappable</strong> → opens in Google Maps, with Directions and Call on each card.</li>
+    </ul>
+  </div>
 
 <!-- ═══ LEG 1 — VAL GARDENA ═══ -->
 <section class="section">
@@ -410,6 +434,13 @@
       </div>
     </div>
 
+  </div>
+
+  <div class="sub-label"><span class="sub-label-main">On the Mountain</span><span class="sub-label-note">hut lunches · summer only, weather-dependent — confirm open before you head up</span></div>
+  <div class="essentials">
+    <a class="ess-row" href="https://www.google.com/maps/search/?api=1&query=Baita%20Sofie%20H%C3%BCtte%20Seceda&query_place_id=ChIJD05Ii2ETeEcRq6zCPB4LRpE" target="_blank" rel="noopener"><div class="ess-tag">Seceda</div><div class="ess-content"><div class="ess-name">Baita Sofie Hütte</div><div class="ess-why">4.6★ (1,640+) · famous ravioli and a terrace under the Seceda ridge. Up the Seceda cable car from Ortisei, then a short walk.</div></div></a>
+    <a class="ess-row" href="https://www.google.com/maps/search/?api=1&query=Refuge%20Panorama%20Dantercepies%20Selva&query_place_id=ChIJ3So8ZOQUeEcRLI8kZ2nAXxw" target="_blank" rel="noopener"><div class="ess-tag">Above Selva</div><div class="ess-content"><div class="ess-name">Refuge Panorama</div><div class="ess-why">4.7★ (1,270+) · arguably the best food on the Sella Ronda, quieter terrace. Dantercepies gondola from Selva. Closed Mondays.</div></div></a>
+    <a class="ess-row" href="https://www.google.com/maps/search/?api=1&query=Rifugio%20Spitzb%C3%BChl%20Alpe%20di%20Siusi&query_place_id=ChIJj8onS6JyeEcRNSKneQm-W38" target="_blank" rel="noopener"><div class="ess-tag">Alpe di Siusi</div><div class="ess-content"><div class="ess-name">Rifugio Spitzbühl</div><div class="ess-why">4.6★ (680+) · best apple strudel on the Seiser Alm, easy meadow walks all around. Closed Thursdays.</div></div></a>
   </div>
 
   <div class="sub-label"><span class="sub-label-main">Beyond Dinner</span><span class="sub-label-note">gelato · coffee · aperitivo · trail picnic</span></div>
@@ -679,6 +710,13 @@
 
   </div>
 
+  <div class="sub-label"><span class="sub-label-main">On the Mountain</span><span class="sub-label-note">hut lunches · summer only, weather-dependent — confirm open before you head up</span></div>
+  <div class="essentials">
+    <a class="ess-row" href="https://www.google.com/maps/search/?api=1&query=Rifugio%20Lagazuoi%20Cortina&query_place_id=ChIJAVe_ILc3eEcRI33npBiM460" target="_blank" rel="noopener"><div class="ess-tag">Lagazuoi</div><div class="ess-content"><div class="ess-name">Rifugio Lagazuoi</div><div class="ess-why">4.5★ (4,500+) · 360° summit terrace + WWI tunnels, no hiking needed — cable car straight up from Passo Falzarego.</div></div></a>
+    <a class="ess-row" href="https://www.google.com/maps/search/?api=1&query=Rifugio%20Scoiattoli%20Cinque%20Torri&query_place_id=ChIJ2aJuZTg0eEcRTriBXcPoy34" target="_blank" rel="noopener"><div class="ess-tag">Cinque Torri</div><div class="ess-content"><div class="ess-name">Rifugio Scoiattoli</div><div class="ess-why">4.5★ (3,700+) · right at the Cinque Torri rock towers + open-air WWI museum. Chairlift up from Bai de Dones.</div></div></a>
+    <a class="ess-row" href="https://www.google.com/maps/search/?api=1&query=Rifugio%20Averau%20Cortina&query_place_id=ChIJM-YCwOhIeEcRD2-jERYl80E" target="_blank" rel="noopener"><div class="ess-tag">Cinque Torri</div><div class="ess-content"><div class="ess-name">Rifugio Averau</div><div class="ess-why">4.5★ (3,300+) · the best local pasta up high — venison ragù, casunziei. Short walk on from Scoiattoli; climb ~40 min more to Rifugio Nuvolau for the famous summit view.</div></div></a>
+  </div>
+
   <div class="sub-label"><span class="sub-label-main">Beyond Dinner</span><span class="sub-label-note">gelato · coffee · aperitivo · trail picnic</span></div>
   <div class="essentials">
     <a class="ess-row" href="https://www.google.com/maps/search/?api=1&query=Da%20Po%27%20gelato%20Cortina&query_place_id=ChIJTcPFd4g1eEcRP5A5bB-218s" target="_blank" rel="noopener"><div class="ess-tag">Gelato</div><div class="ess-content"><div class="ess-name">Da Po'</div><div class="ess-why">Cortina's best gelato — creamy, real-fruit flavours, vegan options too. Central. Closed Wednesdays.</div></div></a>
@@ -807,6 +845,15 @@ document.addEventListener('DOMContentLoaded', function () {
   addHotel(mC, HOTEL_FIORI, '🛏 Hotel Fiori');
 
 });
+</script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register('sw.js').catch(function (err) {
+        console.log('SW registration failed:', err);
+      });
+    });
+  }
 </script>
 </body>
 </html>
