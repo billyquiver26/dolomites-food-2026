@@ -143,7 +143,11 @@
     .section-note { display: none; }
     .section-map { height: 150px; }
   }
-</style>
+.badge-closed{background:#5b5550;color:#efe9e2;}
+    .badge-soon{background:#8a6d1f;color:#fff;}
+    .card.standout .badge-closed{background:rgba(255,255,255,0.18);color:#fff;}
+    .card.standout .badge-soon{background:rgba(230,180,40,0.3);color:#ffe6a3;}
+  </style>
 </head>
 <body>
 
@@ -858,6 +862,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
   var mC = makeMap('map-cortina', [46.5030, 12.1520], 11);
   addPins(mC, CORTINA);
+
+  /* closed-today: device-clock badges, fail-safe (no data = no badge, never a false "open") */
+  (function(){var now=new Date(),day=now.getDay(),mins=now.getHours()*60+now.getMinutes();
+    [].slice.call(document.querySelectorAll('.card')).forEach(function(card){var badges=card.querySelector('.card-badges');if(!badges)return;
+      var cd=(card.getAttribute('data-closed-days')||'').split(',').map(function(s){return s.trim();}).filter(Boolean);
+      if(cd.indexOf(String(day))!==-1){var b=document.createElement('span');b.className='badge badge-closed';b.textContent='Closed today';badges.appendChild(b);return;}
+      var of=card.getAttribute('data-open-from');if(of){var p=of.split(':'),om=(+p[0])*60+(+(p[1]||0));if(mins<om){var b2=document.createElement('span');b2.className='badge badge-soon';b2.textContent='Opens '+of;badges.appendChild(b2);}}
+    });})();
   addHotel(mC, HOTEL_FIORI, '🛏 Hotel Fiori');
 
 });
